@@ -19,16 +19,13 @@ struct AppReducer {
         var detailState: Detail.State?
     }
 
-    enum Action: BindableAction, Equatable {
-        case binding(BindingAction<State>)
+    enum Action:  Equatable {
         case sidebar(Sidebar.Action)
         case content(Content.Action)
         case detail(Detail.Action)
     }
 
     var body: some ReducerOf<Self> {
-        BindingReducer()
-
         Reduce { state, action in
             switch action {
             case .sidebar(.binding(\.selectedGenre)):
