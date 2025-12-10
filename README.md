@@ -1,6 +1,6 @@
 # Overview
 
-A `NavigationSplitView` generally works by having `List(selection:content)` in the `Sidebar` and `Content` columns. The lists usually loop over some data and display a `NavigationLink(value:label:)` for each item.
+A `NavigationSplitView` (in Vanilla SwiftUI) generally works by having `List(selection:content)` in the `Sidebar` and `Content` columns. The lists usually loop over some data and display a `NavigationLink(value:label:)` for each item.
 
 This repository shows how to use a `NavigationSplitView` with TCA's Reducers.
 
@@ -55,11 +55,11 @@ struct YourAwesomeApp: App {
 
 In this example we have 4 Reducers:
 The `AppReducer` is the root reducer of the app and holds the state for the other reducers. 
-`SideBar`, `Content` and `Detail` reducer are for the respective parts of the `NavigationSplitView`
+`SideBar`, `Content` and `Detail` reducer's' are for the respective parts of the `NavigationSplitView`
 
 ### AppReducer
 
-The `AppReducer` listens for the selection of items (in the example genres and bands) and creates the sub-reducers state when something is selected.
+The `AppReducer` listens for the selection of items (in this example genres and bands) and creates the sub-reducers state when something is selected.
 
 ```swift
 import ComposableArchitecture
@@ -156,9 +156,9 @@ struct AppView: App {
 `Both Sidebar` and `Content` reducer as well as their views are very similiar.
 The reducers both hold their own data as well as what is currently selected in their state. 
 The views only display a list based on their reducers state.
-For the Readme I'll only show the `Sidebar` reducers code here
+For the Readme I'll only show the `Sidebar` reducer's code here
 
-** Sidebar Reducer**
+**Sidebar Reducer**
 
 ```swift
 import ComposableArchitecture
@@ -188,7 +188,7 @@ struct Sidebar {
 }
 ```
 
-** Sidebar View**
+**Sidebar View**
 
 ```swift
 import ComposeableArchitecture
@@ -221,4 +221,5 @@ struct SidebarView: View {
 ## Final notes
 
 At the time of writing this I'm still learning TCA, so my example likely has some flaws - if you find something to improve please let me know!
+
 I wasn't able to find any up to date example, so after going over some older (more complicated) examples I decided to make my own minimalistic example, using the current version of TCA.
