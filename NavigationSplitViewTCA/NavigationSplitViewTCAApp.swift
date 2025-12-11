@@ -26,9 +26,9 @@ struct AppReducer {
     }
 
     var body: some ReducerOf<Self> {
-        Reduce { state, action in
+        Reduce<State, Action> { state, action in
             switch action {
-            case .sidebar(.binding(\.selectedGenre)):
+            case .sidebar(\.binding.selectedGenre):
                 if let genre = state.sidebarState.selectedGenre {
                     state.contentState = Content.State(genre: genre)
                 } else {
@@ -36,7 +36,7 @@ struct AppReducer {
                 }
                 return .none
 
-            case .content(.binding(\.selectedBand)):
+            case .content(\.binding.selectedBand):
                 if let band = state.contentState?.selectedBand {
                     state.detailState = Detail.State(band: band)
                 } else {
