@@ -83,7 +83,7 @@ struct AppReducer {
         Reduce { state, action in
             switch action {
             // If a genre is selected, populate the content reducer's state
-            case .sidebar(.binding(\.selectedGenre)):
+            case .sidebar(\.binding.selectedGenre):
                 if let genre = state.sidebarState.selectedGenre {
                     state.contentState = Content.State(genre: genre)
                 } else {
@@ -92,7 +92,7 @@ struct AppReducer {
                 return .none
 
             // if a band is selected, populate the detail reducer's state
-            case .content(.binding(\.selectedBand)):
+            case .content(\.binding.selectedBand):
                 if let band = state.contentState?.selectedBand {
                     state.detailState = Detail.State(band: band)
                 } else {
